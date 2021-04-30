@@ -7,6 +7,15 @@ rm -rf $BUILDDIR
 mkdir -p $BUILDDIR
 mkdir -p $ARCHIVEDIR
 
+# LIBXML2 for Catalina
+MACSDK=`xcrun --show-sdk-path`
+export LIBXML2_CFLAGS="-I${MACSDK}/usr/include/libxml2"
+export LIBXML2_LIBS="-lxml2"
+export PATH="/usr/local/opt/texinfo/bin:$PATH"
+
+# brew install imagemagick@6
+export PKG_CONFIG_PATH="/usr/local/opt/imagemagick@6/lib/pkgconfig"
+
 cd $ARCHIVEDIR
 
 if [[ ! -f $ARCHIVEDIR/emacs-$VERSION.tar.xz ]]; then
@@ -16,19 +25,19 @@ else
     curl --location http://ftpmirror.gnu.org/emacs/emacs-$VERSION.tar.xz \
          --continue-at - --output emacs-$VERSION.tar.xz
 fi
-curl -LO https://gist.githubusercontent.com/takaxp/3314a153f6d02d82ef1833638d338ecf/raw/156aaa50dc028ebb731521abaf423e751fd080de/emacs-25.2-inline.patch
-curl -LO https://gist.githubusercontent.com/takaxp/01ff965361d70de93e9aba3795193cc7/raw/4265d48c13f33a2046669086756c85a2bb83c318/ns-private.patch
+
+git clone --depth 1 https://github.com/takaxp/ns-inline-patch.git
 
 cd $BUILDDIR
 
 tar xvf $ARCHIVEDIR/emacs-$VERSION.tar.xz
 cd emacs-$VERSION
-patch -p1 < $ARCHIVEDIR/emacs-25.2-inline.patch
-patch -p1 < $ARCHIVEDIR/ns-private.patch
+patch -p1 < $ARCHIVEDIR/ns-inline-patch/emacs-25.2-inline.patch
+patch -p1 < $ARCHIVEDIR/ns-inline-patch/fix-emacs26.3-unexmacosx.c.patch
+if [ $? -ne 0 ]; then echo "FAILED"; exit 1; fi
 sleep 5
 ./autogen.sh
-./configure CC=clang --without-x --with-ns --with-modules --without-pop --without-xml2
-# ./configure --without-x --with-ns --with-modules --without-xml2 --with-librsvg
+./configure CC=clang --without-x --with-ns --with-modules --with-rsvg --with-imagemagick --without-pop --with-mailutils
 make bootstrap "-j$(sysctl hw.ncpu | awk '{ print $2 }')"
 make install "-j$(sysctl hw.ncpu | awk '{ print $2 }')"
 cd ./nextstep
