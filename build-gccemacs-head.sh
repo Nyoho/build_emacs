@@ -1,14 +1,5 @@
 #!/bin/sh
 
-# --enable-languages=c,c++,objc,obj-c++,fortran,jit \
-
-# VERSION=27.1-rc2
-VERSION=27.2
-BASE_VERSION=27.2
-TARBALL=emacs-$VERSION.tar.xz
-TARBALL_URL=http://ftpmirror.gnu.org/emacs/$TARBALL
-# TARBALL_URL=https://alpha.gnu.org/gnu/emacs/pretest/$TARBALL
-
 BUILDDIR=/tmp/build_emacs
 ARCHIVEDIR=/tmp/emacs_archives
 # rm -rf $BUILDDIR
