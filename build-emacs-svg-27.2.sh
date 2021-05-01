@@ -63,9 +63,7 @@ sleep 5
 ./configure CC=clang \
             --with-ns \
             --without-x \
-            --with-native-compilation \
             --with-modules \
-            --with-cario \
             --with-imagemagick \
             --with-json=yes \
             --without-pop --with-mailutils
