@@ -1,6 +1,6 @@
 #+title: Scripts to build Emacs
 
-* Scripts
+** Scripts
 
 - build-gccemacs-head-arm.sh :: for Apple Silicon Mac
 - build-gccemacs-head.sh :: for Intel Mac
