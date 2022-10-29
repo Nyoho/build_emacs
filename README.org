@@ -2,5 +2,14 @@
 
 ** Scripts
 
+SVG, native compilation, JSON
+
 - build-gccemacs-head-arm.sh :: for Apple Silicon Mac
 - build-gccemacs-head.sh :: for Intel Mac
+
+** Preparation
+If you use Homebrew, do the following.
+
+#+begin_src sh
+  brew install imagemagick@6 librsvg libgccjit
+#+end_src
