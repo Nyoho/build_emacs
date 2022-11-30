@@ -70,7 +70,7 @@ sleep 5
 ./configure CC=clang \
             --with-ns \
             --without-x \
-            --with-native-compilation \
+            --with-native-compilation=aot \
             --with-modules \
             --with-imagemagick \
             --with-json=yes \
