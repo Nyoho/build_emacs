@@ -50,7 +50,7 @@ cd $BUILDDIR
 
 if [[ ! -d emacs/.git ]]; then
     echo Cloning...
-    git clone --depth 1 git://git.sv.gnu.org/emacs.git
+    git clone --depth 1 https://github.com/emacs-mirror/emacs.git
 else
     echo Git pull...
     cd emacs
