@@ -12,6 +12,8 @@ export LIBXML2_CFLAGS="-I${MACSDK}/usr/include/libxml2"
 export LIBXML2_LIBS="-lxml2"
 export PATH="/opt/homebrew/opt/texinfo/bin:$PATH"
 
+# brew install tree-sitter
+
 # brew install imagemagick@6
 
 # set -gx LDFLAGS "-L/opt/homebrew/opt/imagemagick@6/lib"
