@@ -22,10 +22,11 @@ export PKG_CONFIG_PATH="/usr/local/opt/imagemagick@6/lib/pkgconfig:/usr/local/li
 # export CAIRO_CFLAG="-I/usr/local/opt/cairo/include/cairo"
 # export CAIRO_LIBS="-L/usr/local/opt/cairo/lib -lcairo"
 
-export CFLAGS="$(pkg-config --cflags glib-2.0 gdk-pixbuf-2.0 librsvg-2.0 gio-2.0 gobject-2.0 cairo)"
-export   LIBS="$(pkg-config --libs   glib-2.0 gdk-pixbuf-2.0 librsvg-2.0 gio-2.0 gobject-2.0 cairo)"
-# brew install libgccjit
-export LIBRARY_PATH="/usr/local/lib/gcc/11:${LIBRARY_PATH:-}"
+# export CFLAGS="$(pkg-config --cflags glib-2.0 gdk-pixbuf-2.0 librsvg-2.0 gio-2.0 gobject-2.0 cairo)"
+# export   LIBS="$(pkg-config --libs   glib-2.0 gdk-pixbuf-2.0 librsvg-2.0 gio-2.0 gobject-2.0 cairo)"
+# brew install libgccjit gcc
+# export LIBRARY_PATH="$(brew --prefix libgccjit)/lib/gcc/current:${LIBRARY_PATH:-}"
+# ↑ いらない?????
 
 # export CFLAGS="-I/usr/local/opt/glib/include/glib-2.0 -I/usr/local/opt/gettext/include -I/usr/local/opt/pcre/include -I/usr/local/opt/glib/lib/glib-2.0/include -I/usr/local/opt/cairo/include/cairo -I/usr/local/opt/gdk-pixbuf/include/gdk-pixbuf-2.0"
 # export LIBS="-L/usr/local/opt/glib/lib -lm -L/usr/local/opt/gettext/lib -lglib-2.0 -lintl -Wl,-framework,CoreFoundation -Wl,-framework,Carbon -Wl,-framework,Foundation -Wl,-framework,AppKit -lgio-2.0 -lgobject-2.0 -liconv -lm -L/usr/local/opt/gdk-pixbuf/lib -lgdk_pixbuf-2.0"
@@ -54,6 +55,7 @@ else
     git reset --hard master
     git clean -fdx
     git pull
+    cd ..
 fi
 
 #tar xvf $ARCHIVEDIR/$TARBALL
