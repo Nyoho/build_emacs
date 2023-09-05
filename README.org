@@ -11,5 +11,5 @@ SVG, native compilation, JSON
 If you use Homebrew, do the following.
 
 #+begin_src sh
-  brew install imagemagick@6 librsvg libgccjit
+  brew install imagemagick@6 librsvg libgccjit gcc jansson
 #+end_src
