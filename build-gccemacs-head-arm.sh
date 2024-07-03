@@ -30,7 +30,7 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/imagemagick@6/lib/pkgconfig:/opt/homeb
 
 export CFLAGS="$(pkg-config --cflags glib-2.0 gdk-pixbuf-2.0 librsvg-2.0 gio-2.0 gobject-2.0 cairo libwebp)"
 export   LIBS="$(pkg-config --libs   glib-2.0 gdk-pixbuf-2.0 librsvg-2.0 gio-2.0 gobject-2.0 cairo libwebp)"
-export LIBRARY_PATH="/opt/homebrew/lib/gcc/11:${LIBRARY_PATH:-}"
+export LIBRARY_PATH="$(brew --prefix libgccjit)/lib/gcc/current:${LIBRARY_PATH:-}"
 
 # export CFLAGS="-I/opt/homebrew/opt/glib/include/glib-2.0 -I/opt/homebrew/opt/gettext/include -I/opt/homebrew/opt/pcre/include -I/opt/homebrew/opt/glib/lib/glib-2.0/include -I/opt/homebrew/opt/cairo/include/cairo -I/opt/homebrew/opt/gdk-pixbuf/include/gdk-pixbuf-2.0"
 # export LIBS="-L/opt/homebrew/opt/glib/lib -lm -L/opt/homebrew/opt/gettext/lib -lglib-2.0 -lintl -Wl,-framework,CoreFoundation -Wl,-framework,Carbon -Wl,-framework,Foundation -Wl,-framework,AppKit -lgio-2.0 -lgobject-2.0 -liconv -lm -L/opt/homebrew/opt/gdk-pixbuf/lib -lgdk_pixbuf-2.0"
