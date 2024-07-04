@@ -75,7 +75,6 @@ sleep 5
             --with-native-compilation=aot \
             --with-modules \
             --with-imagemagick \
-            --with-json=yes \
             --with-xwidgets \
             --without-pop --with-mailutils
 make bootstrap "-j$(sysctl hw.ncpu | awk '{ print $2 }')"
